@@ -23,11 +23,11 @@ export const ContactList = () => {
     <List>
       {isLoading && <b>Loading contacts...</b>}
       {error && <b>{error}</b>}
-      {contactsForRender.map(({ name, id, phone }) => {
+      {contactsForRender.map(({ name, id, number }) => {
         return (
           <ListItem key={id}>
             <Name>
-              {name}: <PhoneNumber>{phone}</PhoneNumber>
+              {name}: <PhoneNumber>{number}</PhoneNumber>
             </Name>
             <DeleteBtn
               id={id}

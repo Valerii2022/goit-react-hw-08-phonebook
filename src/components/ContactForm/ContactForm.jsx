@@ -6,11 +6,11 @@ import { addContact } from 'redux/operations';
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContactsNames);
-  const newContact = { name: '', phone: null };
+  const newContact = { name: '', number: null };
 
   const handleInputChange = e => {
     if (e.target.name === 'name') newContact.name = e.target.value;
-    if (e.target.name === 'number') newContact.phone = e.target.value;
+    if (e.target.name === 'number') newContact.number = e.target.value;
   };
 
   const onSubmit = e => {
