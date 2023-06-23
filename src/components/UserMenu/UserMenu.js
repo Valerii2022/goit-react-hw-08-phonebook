@@ -7,7 +7,7 @@ export const UserMenu = () => {
   const user = useSelector(getUser);
   return (
     <div>
-      <p>{user.user.email}</p>
+      <p>Welcome, {user.user.name}</p>
       <button
         onClick={() => {
           dispatch(userLogOut());
