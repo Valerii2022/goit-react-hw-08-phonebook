@@ -14,9 +14,13 @@ export const Navigation = () => {
         <li>
           <NavLink to="/registration">Register</NavLink>
         </li>
-        <li>
-          <NavLink to="/contacts">Contacts</NavLink>
-        </li>
+        {!isLoggedIn ? (
+          <li>
+            <NavLink to="/contacts">Contacts</NavLink>
+          </li>
+        ) : (
+          <div></div>
+        )}
         {isLoggedIn ? (
           <UserMenu />
         ) : (

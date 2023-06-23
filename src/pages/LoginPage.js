@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { UserMenu } from 'components/UserMenu';
+import { useDispatch } from 'react-redux';
+// import { UserMenu } from 'components/UserMenu';
 import { userLogIn } from 'redux/operations';
-import { getUser } from 'redux/selectors';
+// import { getUser } from 'redux/selectors';
 
 export const Login = () => {
   const dispatch = useDispatch();
   const user = { email: '', password: null };
-  const { isLoggedIn } = useSelector(getUser);
+  // const { isLoggedIn } = useSelector(getUser);
   const handleLoginSubmit = e => {
     e.preventDefault();
     user.email = e.target[0].value;
@@ -17,23 +17,19 @@ export const Login = () => {
 
   return (
     <div>
-      {isLoggedIn ? (
-        <UserMenu />
-      ) : (
-        <div>
-          <h1>Login page</h1>
-          <form onSubmit={handleLoginSubmit}>
-            <input type="email" name="email" required placeholder="Email" />
-            <input
-              type="password"
-              name="password"
-              required
-              placeholder="Password"
-            />
-            <button>Login</button>
-          </form>
-        </div>
-      )}
+      <div>
+        <h1>Login page</h1>
+        <form onSubmit={handleLoginSubmit}>
+          <input type="email" name="email" required placeholder="Email" />
+          <input
+            type="password"
+            name="password"
+            required
+            placeholder="Password"
+          />
+          <button>Login</button>
+        </form>
+      </div>
     </div>
   );
 };
