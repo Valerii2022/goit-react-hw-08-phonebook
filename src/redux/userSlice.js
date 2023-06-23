@@ -1,5 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { userRegistrations, userLogIn, userLogOut } from './operations';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['token'],
+};
 
 const userSlice = createSlice({
   name: 'user',
@@ -38,4 +46,4 @@ const userSlice = createSlice({
   },
 });
 
-export const userReducer = userSlice.reducer;
+export const userReducer = persistReducer(persistConfig, userSlice.reducer);

@@ -50,13 +50,13 @@ export const userLogOut = createAsyncThunk(
   }
 );
 
-export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
+export const fetchContacts = createAsyncThunk('allContacts', async () => {
   const { data } = await axios.get('/contacts');
   return data;
 });
 
 export const addContact = createAsyncThunk(
-  'contacts/addContact',
+  'contact',
   async (contact, thunkAPI) => {
     try {
       const { data } = await axios.post('/contacts', contact);

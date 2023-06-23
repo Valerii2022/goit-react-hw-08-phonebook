@@ -8,7 +8,13 @@ export const UserMenu = () => {
   return (
     <div>
       <p>{user.user.email}</p>
-      <button onClick={dispatch(userLogOut)}>Logout</button>
+      <button
+        onClick={() => {
+          dispatch(userLogOut());
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };
