@@ -5,6 +5,7 @@ import { getUser } from 'redux/selectors';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(getUser);
+
   return (
     <div>
       <p>Welcome, {user.user.name}</p>
