@@ -7,7 +7,6 @@ import { Button } from 'pages/styled';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(getUser);
-  console.log(user.user.name);
 
   return (
     <>

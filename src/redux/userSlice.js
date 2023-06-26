@@ -14,6 +14,10 @@ const persistConfig = {
   whitelist: ['token'],
 };
 
+const handleRejected = (state, { payload }) => {
+  state.error = payload;
+};
+
 const userSlice = createSlice({
   name: 'user',
   initialState: { user: {}, isLoggedIn: false, error: null, token: null },
@@ -25,31 +29,25 @@ const userSlice = createSlice({
         state.error = null;
         state.isLoggedIn = true;
       })
-      .addCase(userRegistrations.rejected, (state, { payload }) => {
-        state.error = payload;
-      })
       .addCase(userLogIn.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.token = payload.token;
         state.error = null;
         state.isLoggedIn = true;
       })
-      .addCase(userLogIn.rejected, (state, { payload }) => {
-        state.error = payload;
-      })
       .addCase(userLogOut.fulfilled, (state, { payload }) => {
         state.token = null;
         state.error = null;
         state.isLoggedIn = false;
       })
-      .addCase(userLogOut.rejected, (state, { payload }) => {
-        state.error = payload;
-      })
       .addCase(refreshContact.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.error = null;
         state.isLoggedIn = true;
-      });
+      })
+      .addMatcher(action => {
+        action.type.endsWith('/rejected');
+      }, handleRejected);
   },
 });
 
