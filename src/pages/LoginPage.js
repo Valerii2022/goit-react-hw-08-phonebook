@@ -1,12 +1,9 @@
 import { useDispatch } from 'react-redux';
-// import { UserMenu } from 'components/UserMenu';
 import { userLogIn } from 'redux/operations';
-// import { getUser } from 'redux/selectors';
 
 export const Login = () => {
   const dispatch = useDispatch();
   const user = { email: '', password: null };
-  // const { isLoggedIn } = useSelector(getUser);
   const handleLoginSubmit = e => {
     e.preventDefault();
     user.email = e.target[0].value;

@@ -78,3 +78,24 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const refreshContact = createAsyncThunk(
+  'users/current',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.user.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(persistedToken);
+
+    try {
+      const { data } = await axios.get(`/users/current`);
+      return data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
