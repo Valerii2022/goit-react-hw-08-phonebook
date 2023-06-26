@@ -7,6 +7,7 @@ import { Contacts } from 'pages/ContactsPage';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshContact } from 'redux/operations';
+// import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();

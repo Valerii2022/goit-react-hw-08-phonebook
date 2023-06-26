@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { userRegistrations } from 'redux/operations';
+import { Button,  Form, FormInput } from './styled';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -17,17 +18,17 @@ const Registration = () => {
   return (
     <div>
       <h1>Registration Form</h1>
-      <form onSubmit={handleRegistrationsSubmit}>
-        <input type="text" name="name" required placeholder="Name" />
-        <input type="email" name="email" required placeholder="Email" />
-        <input
+      <Form onSubmit={handleRegistrationsSubmit}>
+        <FormInput type="text" name="name" required placeholder="Name" />
+        <FormInput type="email" name="email" required placeholder="Email" />
+        <FormInput
           type="password"
           name="password"
           required
           placeholder="Password"
         />
-        <button>Register</button>
-      </form>
+        <Button>Register</Button>
+      </Form>
     </div>
   );
 };

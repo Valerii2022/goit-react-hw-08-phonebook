@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getContactsNames, getFilter } from 'redux/selectors';
 import { useEffect } from 'react';
 import { deleteContact, fetchContacts } from 'redux/operations';
-import { List, ListItem, Name, PhoneNumber, DeleteBtn } from './styled';
+import { List, ListItem, Name,  DeleteBtn } from './styled';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -26,9 +26,6 @@ export const ContactList = () => {
       {contactsForRender.map(({ name, id, number }) => {
         return (
           <ListItem key={id}>
-            <Name>
-              {name}: <PhoneNumber>{number}</PhoneNumber>
-            </Name>
             <DeleteBtn
               id={id}
               onClick={() => {
@@ -37,6 +34,13 @@ export const ContactList = () => {
             >
               Delete
             </DeleteBtn>
+            <Name>
+              {name}
+            </Name>
+            <Name>
+              {number}
+            </Name>
+            
           </ListItem>
         );
       })}

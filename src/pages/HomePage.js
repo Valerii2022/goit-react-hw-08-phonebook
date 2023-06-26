@@ -1,9 +1,9 @@
+import { Title } from './styled';
+
 export const Home = () => {
   return (
     <div>
-      <h1>You PHONEBOOK welcome page!!!</h1>
+      <Title>PHONEBOOK welcome page!!!</Title>
     </div>
   );
 };
-
-// export default Home;
