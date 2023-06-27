@@ -12,7 +12,7 @@ export const UserMenu = () => {
     <>
       {user && (
         <Container>
-          <Text>Welcome, {user.name}</Text>
+          <Text>Welcome, {user.user.name}</Text>
           <Button
             onClick={() => {
               dispatch(userLogOut());
