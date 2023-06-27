@@ -22,7 +22,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route
+          <Route path="registration" element={<Registration />} />
+          {/* <Route
             path="registration"
             element={
               <RestrictedRoute
@@ -30,7 +31,7 @@ export const App = () => {
                 component={<Registration />}
               />
             }
-          />
+          /> */}
           <Route
             path="login"
             element={
