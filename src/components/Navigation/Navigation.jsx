@@ -11,9 +11,11 @@ export const Navigation = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/registration">Register</Link>
-        </li>
+        {!isLoggedIn && (
+          <li>
+            <Link to="/registration">Register</Link>
+          </li>
+        )}
         {isLoggedIn && (
           <li>
             <Link to="/contacts">Contacts</Link>

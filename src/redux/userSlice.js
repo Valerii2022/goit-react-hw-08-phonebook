@@ -17,6 +17,7 @@ const persistConfig = {
 const handleRejected = (state, { payload }) => {
   state.isRefreshing = false;
   state.error = payload;
+  state.isLoggedIn = false;
 };
 
 const userSlice = createSlice({
@@ -49,12 +50,12 @@ const userSlice = createSlice({
       })
       .addCase(refreshContact.pending, state => {
         state.isRefreshing = true;
-        state.isLoggedIn = true;
+        // state.isLoggedIn = true;
       })
       .addCase(refreshContact.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.error = null;
-        state.isLoggedIn = true;
+        // state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addMatcher(action => {
