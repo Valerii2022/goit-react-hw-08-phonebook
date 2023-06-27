@@ -4,18 +4,18 @@ import { Home } from 'pages/HomePage';
 import Registration from 'pages/RegistrationPage';
 import { Login } from 'pages/LoginPage';
 import { Contacts } from 'pages/ContactsPage';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { refreshContact } from 'redux/operations';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshContact } from 'redux/operations';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(refreshContact());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshContact());
+  }, [dispatch]);
 
   return (
     <div>
