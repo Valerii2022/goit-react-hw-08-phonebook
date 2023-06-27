@@ -58,8 +58,10 @@ const userSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshContact.rejected, state => {
+      .addCase(refreshContact.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.isLoggedIn = false;
+        state.error = payload;
       })
       .addMatcher(action => {
         action.type.endsWith('/rejected');
