@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { userRegistrations } from 'redux/operations';
-import { Button,  Form, FormInput } from './styled';
+import { Button, Form, FormInput } from './styled';
 
 const Registration = () => {
   const dispatch = useDispatch();

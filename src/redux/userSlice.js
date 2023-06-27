@@ -15,12 +15,19 @@ const persistConfig = {
 };
 
 const handleRejected = (state, { payload }) => {
+  state.isRefreshing = false;
   state.error = payload;
 };
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: { user: {}, isLoggedIn: false, error: null, token: null },
+  initialState: {
+    user: {},
+    isLoggedIn: false,
+    error: null,
+    token: null,
+    isRefreshing: false,
+  },
   extraReducers: builder => {
     builder
       .addCase(userRegistrations.fulfilled, (state, { payload }) => {
@@ -40,10 +47,15 @@ const userSlice = createSlice({
         state.error = null;
         state.isLoggedIn = false;
       })
+      .addCase(refreshContact.pending, state => {
+        state.isRefreshing = true;
+        state.isLoggedIn = true;
+      })
       .addCase(refreshContact.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.error = null;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addMatcher(action => {
         action.type.endsWith('/rejected');
