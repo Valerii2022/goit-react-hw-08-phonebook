@@ -24,7 +24,7 @@ export const Login = () => {
           required
           placeholder="Password"
         />
-        <Button>Login</Button>
+        <Button>Log In</Button>
       </Form>
     </div>
   );
