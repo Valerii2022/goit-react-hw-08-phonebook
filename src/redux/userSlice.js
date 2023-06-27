@@ -17,7 +17,7 @@ const persistConfig = {
 const handleRejected = (state, { payload }) => {
   state.isRefreshing = false;
   state.error = payload;
-  state.isLoggedIn = false;
+  // state.isLoggedIn = false;
 };
 
 const userSlice = createSlice({
