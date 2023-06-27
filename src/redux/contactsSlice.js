@@ -20,15 +20,15 @@ const contactsSlice = createSlice({
         state.items = payload;
       })
       .addCase(addContact.pending, state => {
-        state.isLoading = true;
+        // state.isLoading = true;
       })
       .addCase(addContact.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
+        // state.isLoading = false;
         state.error = null;
         state.items.push(payload);
       })
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
+        // state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(task => task.id === payload.id);
         state.items.splice(index, 1);

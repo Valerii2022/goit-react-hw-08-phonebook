@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getContactsNames } from 'redux/selectors';
 import { Form, AddContactBtn, FormLabel, FormInput } from './styled';
 import { addContact } from 'redux/operations';
+import Notiflix from 'notiflix';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const ContactForm = () => {
     );
 
     if (addedName) {
-      return alert(`${newContact.name} is already in contacts`);
+      return Notiflix.Notify.failure(`${newContact.name} is already in contacts`);
     }
 
     dispatch(addContact(newContact));

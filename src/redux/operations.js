@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -20,6 +21,7 @@ export const userRegistrations = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -33,6 +35,7 @@ export const userLogIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -45,6 +48,7 @@ export const userLogOut = createAsyncThunk(
       await axios.post('/users/logout');
       token.unset();
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -62,6 +66,7 @@ export const addContact = createAsyncThunk(
       const { data } = await axios.post('/contacts', contact);
       return data;
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -74,6 +79,7 @@ export const deleteContact = createAsyncThunk(
       const { data } = await axios.delete(`/contacts/${id}`);
       return data;
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -93,6 +99,7 @@ export const refreshContact = createAsyncThunk(
       const { data } = await axios.get(`/users/current`);
       return data;
     } catch (e) {
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
