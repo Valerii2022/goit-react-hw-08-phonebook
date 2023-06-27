@@ -50,7 +50,7 @@ const userSlice = createSlice({
       })
       .addCase(refreshContact.pending, state => {
         state.isRefreshing = true;
-        // state.isLoggedIn = true;
+        state.isLoggedIn = true;
       })
       .addCase(refreshContact.fulfilled, (state, { payload }) => {
         state.user = payload;
