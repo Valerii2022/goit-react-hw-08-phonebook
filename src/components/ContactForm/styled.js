@@ -50,4 +50,7 @@ export const FormInput = styled.input`
   :focus {
     box-shadow: 0px 0px 8px #004d80;
   }
+  @media screen and (max-width: 468px) {
+    width: 200px;
+  }
 `;

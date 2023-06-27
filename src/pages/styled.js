@@ -7,6 +7,7 @@ export const Title = styled.h1`
 export const Form = styled.form`
   display: flex;
   text-align: center;
+  flex-wrap: wrap;
   gap: 20px;
 `;
 
@@ -26,6 +27,9 @@ export const FormInput = styled.input`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;

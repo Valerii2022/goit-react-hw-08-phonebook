@@ -23,9 +23,18 @@ export const Link = styled(NavLink)`
     background-color: #bbe4ff;
     color: #004d80;
   }
+  &.active {
+    background-color: #bbe4ff;
+    color: #004d80;
+  }
+  @media screen and (max-width: 468px) {
+    width: 68px;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 `;
